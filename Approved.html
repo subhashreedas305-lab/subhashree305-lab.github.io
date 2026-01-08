@@ -10,48 +10,5 @@
 
   <p>Approved candidates official information</p>
 
-  <!-- এখানে পরে PDF / Excel link দেবেন -->
-  <a href="https://drive.google.com" target="_blank">
-    👉 View Approved PAPs List
-  </a>
-
-  <br><br>
-  <a href="index.html">⬅ Back to Home</a>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Approved List</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body style="font-family:Arial;padding:20px">
-
-<h2>Approved Candidates</h2>
-
-<table border="1" cellpadding="8" id="table"></table>
-
-<script>
-fetch("approved.csv")
-.then(res => res.text())
-.then(data => {
-  let rows = data.split("\n");
-  let table = document.getElementById("table");
-
-  rows.forEach((row, i) => {
-    let tr = document.createElement("tr");
-    row.split(",").forEach(col => {
-      let cell = document.createElement(i==0?"th":"td");
-      cell.innerText = col;
-      tr.appendChild(cell);
-    });
-    table.appendChild(tr);
-  });
-});
-</script>
-
-<br>
-<a href="index.html">⬅ Back to Home</a>
-
-</body>
+  
 </html>
