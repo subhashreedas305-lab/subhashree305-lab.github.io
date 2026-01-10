@@ -44,6 +44,55 @@
     <a class="btn" href="approved.html">📁Employment Files Approval Process Ongoing </a>
     <a class="btn" href="underprocess.html">📁Employment Applications Under Process</a>
     <a class="btn" href="underprocess.html">📁Land Purchase Files</a>
+    h3>Land Purchase Files</h3>
+<input
+  type="text"
+  id="searchInput"
+  placeholder="Search by name, project, village..."
+  style="width:100%; padding:12px; margin-bottom:15px;"
+>
+
+<table id="purchaseTable" border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Name of Colliery</th>
+      <th>Date of receive</th
+    </tr>
+  </thead>
+  <tbody>
+    <script>
+const sheetID = "14rC4Js_Licj37zNaiQLbLyz7jL1fLStB_72Ijr1wC7E";
+const sheetName = "purchase file";
+
+const url = https://docs.google.com/spreadsheets/d/14rC4Js_Licj37zNaiQLbLyz7jL1fLStB_72Ijr1wC7E/edit?usp=sharing
+fetch(url)
+  .then(res => res.json())
+  .then(data => {
+    const tbody = document.querySelector("#purchaseTable tbody");
+    tbody.innerHTML = "";
+    data.forEach(row => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${row.Name || ""}</td>
+          <td>${row.Name of Colliery || ""}</td>
+          <td>${row.Date of Receive || ""}</td>
+        </tr>
+      `;
+    });
+  });
+
+document.getElementById("searchInput").addEventListener("keyup", function () {
+  const value = this.value.toLowerCase();
+  document.querySelectorAll("#purchaseTable tbody tr").forEach(row => {
+    row.style.display = row.innerText.toLowerCase().includes(value)
+      ? ""
+      : "none";
+  });
+});
+</script>
+  </tbody>
+</table>
     <p style="font-size:14px;">
      For queries and suggestions please contact<br>
       Land department, Salanpur Area
