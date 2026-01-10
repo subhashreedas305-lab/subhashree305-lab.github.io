@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Land Purchase Files</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #2c3e50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
 
+<h2>Land Purchase Files</h2>
+
+<input type="text" id="search" placeholder="Search by name, project, village...">
+
+<table id="dataTable">
+  <thead>
+    <tr>
+      <th>Name of PAP</th>
+      <th>Name of Father</th>
+      <th>Project Name</th>
+      <th>Village</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+fetch('land_purchase_files.csv')
+  .then(res => res.text())
+  .then(text => {
+    let rows = text.split('\n').slice(1);
+    let tbody = document.querySelector('#dataTable tbody');
+
+    rows.forEach(row => {
+      let cols = row.split(',');
+      if (cols.length > 1) {
+        let tr = document.createElement('tr');
+        cols.forEach(col => {
+          let td = document.createElement('td');
+          td.textContent = col;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      }
+    });
+  });
+
+document.getElementById('search').addEventListener('keyup', function() {
+  let value = this.value.toLowerCase();
+  document.querySelectorAll('#dataTable tbody tr').forEach(row => {
+    row.style.display = row.innerText.toLowerCase().includes(value)
+      ? '' : 'none';
+  });
+});
+</script>
+
+</body>
+</html>
