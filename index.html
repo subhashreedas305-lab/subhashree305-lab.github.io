@@ -44,56 +44,6 @@
     <a class="btn" href="approved.html">📁Employment Files Approval Process Ongoing </a>
     <a class="btn" href="underprocess.html">📁Employment Applications Under Process</a>
     <a class="btn" href="underprocess.html">📁Land Purchase Files</a>
-    h3>Land Purchase Files
-<input
-  type="text"
-  id="searchInput"
-  placeholder="Search by name, project, village..."
-  style="width:100%; padding:12px; margin-bottom:15px;"
->
-
-<table id="purchaseTable" border="1" width="100%">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Name of Colliery</th>
-      <th>Date of receive</th
-    </tr>
-  </thead>
-  <tbody>
-    <script>
-const sheetID = "14rC4Js_Licj37zNaiQLbLyz7jL1fLStB_72Ijr1wC7E";
-const sheetName = "purchase file";
-
-const url =https://docs.google.com/spreadsheets/d/14rC4Js_Licj37zNaiQLbLyz7jL1fLStB_72Ijr1wC7E/edit?usp=sharing
-fetch(url)
-  .then(res => res.json())
-  .then(data => {
-    const tbody = document.querySelector("#purchaseTable tbody");
-    tbody.innerHTML = "";
-    data.forEach(row => {
-      tbody.innerHTML += `
-        <tr>
-          <td>${row.Name || ""}</td>
-          <td>${row.Name of Colliery || ""}</td>
-          <td>${row.Date of Receive || ""}</td>
-        </tr>
-      `;
-    });
-  });
-
-document.getElementById("searchInput").addEventListener("keyup", function () {
-  const value = this.value.toLowerCase();
-  document.querySelectorAll("#purchaseTable tbody tr").forEach(row => {
-    row.style.display = row.innerText.toLowerCase().includes(value)
-      ? ""
-      : "none";
-  });
-});
-</script>
-  </tbody>
-</table>
-    </h3>
     <p style="font-size:14px;">
      For queries and suggestions please contact<br>
       Land department, Salanpur Area
@@ -102,19 +52,56 @@ document.getElementById("searchInput").addEventListener("keyup", function () {
 </body>
 </html>
 <h2> Employment & Purchase files Status</h2>
-<!-- APPROVAL -->
-<div id="approval" class="tab-content">
-  <h3>Employment Files Approval Process Ongoing</h3>
-  <p>Approval-related information will appear here.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salanpur Area File Status</title>
 
-<!-- UNDER PROCESS -->
-<div id="underprocess" class="tab-content">
-  <h3>Employment Applications Under Process</h3>
-  <p>Under process applications list here.</p>
-</div>
+<style>
+body {
+    font-family: Georgia, serif;
+    background: #f4f6f8;
+    text-align: center;
+}
 
-<!-- LAND PURCHASE -->
-<div id="purchase" class="tab-content">
-  <h3>Land Purchase Files</h3>
+.btn {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #2f4054;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 18px;
+}
 
+.btn:hover {
+    background: #1f2d3d;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Salanpur Area</h1>
+<h2>Employment & Purchase Files Status</h2>
+
+<a class="btn" href="PASTE_GOOGLE_SHEET_LINK_1" target="_blank">
+📁 Employment Files Approval Process – Ongoing
+</a>
+
+<a class="btn" href="https://docs.google.com/spreadsheets/d/1-HwY8GtgP2BadrmpCVx3FdPjDIWK-8ynnDrOKq_bivU/edit?usp=sharing" target="_blank">
+📁 Employment Applications Under Process
+</a>
+
+<a class="btn" href="https://docs.google.com/spreadsheets/d/14rC4Js_Licj37zNaiQLbLyz7jL1fLStB_72Ijr1wC7E/edit?usp=sharing" target="_blank">
+📁 Land Purchase Files
+</a>
+
+<p>For queries contact Land Department, Salanpur Area</p>
+
+</body>
+</html>
